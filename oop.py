@@ -3,14 +3,14 @@ from abc import ABC, abstractmethod
 class Person:
     def __init__(self, name, age):
         self.name = name
-        self.__age__ = age
+        self.__age = age
 
     def get_age(self):
-        return self.__age__
+        return self.__age
 
     def set_age(self, new_age):
         if new_age > 0:
-            self.__age__ = new_age
+            self.__age = new_age
         else:
             raise ValueError("Вы ввели неправильное значение")
 
@@ -53,10 +53,13 @@ class Bicycle(Vehicle):
     def move(self):
         return "Bicycle is pedaling"
 
+def move(vehicle):
+    return vehicle.move()
+
 car = Car()
 bike = Bicycle()
-print(car.move())
-print(bike.move())
+print(move(car))
+print(move(bike))
 
 class Shape(ABC):
     @abstractmethod
