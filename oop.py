@@ -9,7 +9,7 @@ class Person:
         return self.__age
 
     def set_age(self, new_age):
-        if new_age > 0:
+        if new_age >= 0:
             self.__age = new_age
         else:
             raise ValueError("Вы ввели неправильное значение")
